@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<div style="width: 100%;">
+    <canvas baseChart
+    [datasets]="barChartData"
+    [labels]="barChartLabels"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [colors]="barChartColors"
+    [chartType]="barChartType">
+    </canvas>
+</div>
+
+<app-footer></app-footer>

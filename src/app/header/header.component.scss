@@ -1,0 +1,20 @@
+
+.navBar  {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    background-color: #f7ca02; /* vert telma */
+    // border: 2px solid #006633; /* jaune telma */
+    // padding: 25px;
+    height: 100px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.icon {
+    margin-left: 20px;
+    margin-right: 100px;
+    text-align: center;
+}

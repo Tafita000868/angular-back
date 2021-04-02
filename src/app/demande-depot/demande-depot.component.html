@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<br/><br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="alert alert-warning" role="alert">
+                {{error_msg}}
+            </div> <br/>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Numero du compte</th>
+                        <th scope="col">Numero d'utilisateur</th>
+                        <th scope="col">Montant</th>
+                        <th scope="col">Date du demande</th>
+                        <th scope="col">Validation</th>
+                        <th scope="col">Refuse</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let depot of depots">
+                        <th> {{depot.compteUtilise.idCompte}} </th>
+                        <td> {{depot.compteUtilise.numero}} </td>
+                        <td> {{depot.montant}} Ariary</td>
+                        <td> {{depot.date.date.day}} / {{depot.date.date.month}} / {{depot.date.date.year}} </td>
+                        <td><button type="submit" class="btn btn-success" (click)="validerDepot(depot.compteUtilise.idCompte,depot)">Valider</button></td>
+                        <td><button type="submit" class="btn btn-danger" (click)="refuserDepot(depot)">Refuser</button></td>
+                    </tr>                    
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+
+<br/><br/>
+<app-footer></app-footer>

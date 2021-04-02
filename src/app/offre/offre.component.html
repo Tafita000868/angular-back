@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+<br/><br/>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <div class="alert alert-warning" role="alert">
+                {{error_msg}}
+            </div> <br/>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Numero</th>
+                        <th scope="col">Nom de l'offre</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Validite</th>
+                        <th scope="col">detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let offre of offres">
+                        <th> {{offre.idOffre}} </th>
+                        <td> {{offre.nomOffre}} </td>
+                        <td> {{offre.prix}} Ariary</td>
+                        <td> {{offre.validiteEnJour}} jour(s) </td>
+                        <td><button type="submit" class="btn btn-success" (click)="voirDetail(offre)">Detail</button></td>
+                    </tr>                    
+                </tbody>
+            </table> 
+        </div>
+        <div class="col-md-5">
+            <br/>
+            <div class="row" *ngIf="contentCurrentOffre">
+                <div class="col-md-4">
+                    <div class="alert alert-primary" role="alert">
+                        <p> Numero : {{currentOffre.idOffre}}  </p>
+                        <p> Offre : <strong>{{currentOffre.nomOffre}}</strong>  </p>                
+                        <p> Prix : {{currentOffre.prix}} Ariary </p>                
+                        <p> Validite : {{currentOffre.validiteEnJour}} jour(s)  </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <table class="table">
+                        <tbody>
+                            <tr *ngFor="let detailoffre of detailOffres">
+                                <th> {{detailoffre.attribut}} </th>
+                                <td> {{detailoffre.valeur}} </td>
+                                <td> {{detailoffre.unite}} </td>
+                            </tr>   
+                        </tbody>
+                    </table>
+                </div>
+                <br/>
+                <form>
+                    <div class="col">
+                        <input type="text" class="input"  [(ngModel)] = "attribut" name="attribut" placeholder="intitule" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="input"  [(ngModel)] = "valeur" name="valeur" placeholder="valeur" required>
+                    </div>
+                    <div class="col">
+                        <input type="text" class="input"  [(ngModel)] = "unite" name="unite" placeholder="unite" required>
+                    </div>
+                    <div class="col">
+                        <input type="submit" value=" + detail "  (click)="addDetail()" class="btn btn-success">
+                    </div>     
+                </form>
+        
+
+            </div>
+        </div>
+        
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+
+<br/><br/>
+<app-footer></app-footer>
